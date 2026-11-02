@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="K-Explore: Discover, explore, and register for premier collegiate hackathons, tech summits, design bootcamps, and cultural festivals." />
+  <meta name="keywords" content="events, campus events, hackathons, workshops, web design, K Explore, college events" />
+  <meta name="author" content="Sarthak Sharma" />
+  <title>K-Explore | Modern Responsive Event Management Platform</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. Top Sticky Navigation Header
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" aria-label="K-Explore Home">
+        <div class="brand-icon-wrapper">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <span>K-<span class="brand-highlight">EXPLORE</span></span>
+        <span class="brand-badge">Events</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#eventsSection" class="nav-link">Explore Events</a></li>
+          <li><a href="#categoriesAnchor" class="nav-link">Categories</a></li>
+          <li><a href="#whyAttend" class="nav-link">Why Attend</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Controls (Theme Toggle, My Tickets, Mobile Menu) -->
+      <div class="header-actions">
+        <!-- My Tickets Button (Bonus Challenge: LocalStorage Data View) -->
+        <button type="button" class="my-tickets-btn" id="myTicketsBtn" aria-label="View My Registrations">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>My Passes</span>
+          <span class="tickets-count-badge" id="ticketsCountBadge" style="display: none;">0</span>
+        </button>
+
+        <!-- Dark/Light Theme Toggle (Bonus Challenge) -->
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch Theme">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Mobile Navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. Hero Section with Live Countdown Timer
+       ========================================================================= -->
+  <main>
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <!-- Hero Left Column: Headline, Description & CTAs -->
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span class="pulse-dot"></span>
+            <span>K-Explore Annual Campus Conclave 2026</span>
+          </div>
+
+          <h1 class="hero-title">
+            Discover, Experience &amp; Register for <span class="hero-title-gradient">Premier Campus Events</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Your centralized portal to national hackathons, spatial UI/UX summits, startup pitch competitions, cultural festivals, and hands-on developer masterclasses.
+          </p>
+
+          <div class="hero-cta-group">
+            <button type="button" class="btn btn-primary" id="heroExploreBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              Explore All Events
+            </button>
+            <a href="#categoriesAnchor" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              Browse Categories
+            </a>
+          </div>
+
+          <!-- Hero Quick Stats Row -->
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Curated Events</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2,500+</span>
+              <span class="stat-label">Active Attendees</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Free Registration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Live Event Countdown Card (Bonus Challenge) -->
+        <div class="hero-countdown-card">
+          <div class="countdown-card-header">
+            <span class="countdown-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              Flagship Event Countdown
+            </span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--success);">Registration Open</span>
+          </div>
+
+          <h2 class="countdown-event-title">HackK-Explore 2026: 48-Hour National Hackathon</h2>
+
+          <div class="countdown-event-meta">
+            <div class="countdown-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Nov 20 - 22, 2026 • 09:00 AM Onwards</span>
+            </div>
+            <div class="countdown-meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <span>Main Auditorium &amp; Innovation Lab</span>
+            </div>
+          </div>
+
+          <!-- Real-Time Countdown Clock Digits -->
+          <div class="countdown-clock" id="heroCountdownClock" aria-label="Live countdown timer">
+            <div class="countdown-digit-box">
+              <span class="countdown-number" id="heroDays">00</span>
+              <span class="countdown-unit">Days</span>
+            </div>
+            <div class="countdown-digit-box">
+              <span class="countdown-number" id="heroHours">00</span>
+              <span class="countdown-unit">Hours</span>
+            </div>
+            <div class="countdown-digit-box">
+              <span class="countdown-number" id="heroMins">00</span>
+              <span class="countdown-unit">Mins</span>
+            </div>
+            <div class="countdown-digit-box">
+              <span class="countdown-number" id="heroSecs">00</span>
+              <span class="countdown-unit">Secs</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-full" id="heroRegisterBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            Reserve Hackathon Seat
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. Interactive Search, Filters & Category Bar
+         ========================================================================= -->
+    <section class="controls-section" id="categoriesAnchor">
+      <div class="container">
+        <div class="filter-bar-card">
+          <!-- Top Row: Search input, Sort select & Filter dropdown -->
+          <div class="search-sort-row">
+            <div class="search-input-wrapper">
+              <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="searchInput" class="search-input" placeholder="Search events by title, keyword, or venue..." aria-label="Search events" />
+              <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <div class="filter-actions-group">
+              <select id="sortSelect" class="custom-select" aria-label="Sort events">
+                <option value="upcoming">Sort by: Upcoming Date</option>
+                <option value="popular">Sort by: Most Popular</option>
+                <option value="title-asc">Sort by: Name (A-Z)</option>
+              </select>
+
+              <select id="statusFilterSelect" class="custom-select" aria-label="Filter events by badge">
+                <option value="all">All Statuses</option>
+                <option value="featured">Featured Only</option>
+                <option value="saved">My Favorites</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Bottom Row: Category Filter Pills -->
+          <div class="category-pills-row" id="categoryPills" role="tablist" aria-label="Filter by category">
+            <!-- Dynamic Category Pills Rendered by JS -->
+          </div>
+
+          <!-- Filter Summary & Reset Bar -->
+          <div class="filter-summary-row">
+            <span id="filterSummaryText">Showing all events</span>
+            <button type="button" class="reset-filters-btn" id="resetFiltersBtn">Reset Filters</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. Events Showcase Grid
+         ========================================================================= -->
+    <section class="events-section" id="eventsSection">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-tag">Featured &amp; Upcoming</div>
+            <h2 class="section-title">Explore All Experiences</h2>
+          </div>
+        </div>
+
+        <!-- Dynamic Grid of Event Cards -->
+        <div class="events-grid" id="eventsGrid" aria-live="polite">
+          <!-- Dynamic Event Cards Injected via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. Why Attend K-Explore Section (Value Proposition)
+         ========================================================================= -->
+    <section class="features-section" id="whyAttend">
+      <div class="container">
+        <div style="text-align: center; max-width: 620px; margin: 0 auto;">
+          <div class="section-tag">Empowering Student Innovation</div>
+          <h2 class="section-title">Why Participate in K-Explore?</h2>
+          <p style="color: var(--text-muted); margin-top: 0.5rem;">
+            Every event is designed to foster hands-on learning, collaborative problem solving, and long-term career opportunities.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h4>High-Impact Networking</h4>
+            <p>Connect with peers, industry veterans, founders, and recruiters looking for rising talent.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h4>Hands-on Skill Building</h4>
+            <p>Work on production tools, open-source repositories, modern frameworks, and real client prompts.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+            </div>
+            <h4>Verified Credentials</h4>
+            <p>Earn cryptographic digital certificates and badges easily shareable on LinkedIn and portfolios.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <h4>Direct Mentorship</h4>
+            <p>Receive 1-on-1 code reviews, pitch teardowns, and design feedback from experienced mentors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       6. Event Details Modal Dialog
+       ========================================================================= -->
+  <div class="modal-backdrop" id="detailsModal" role="dialog" aria-modal="true" aria-labelledby="modalDetailsTitle">
+    <div class="modal-container details-modal-container">
+      <button type="button" class="modal-close-btn" id="detailsModalCloseBtn" aria-label="Close details dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Content populated by JavaScript -->
+      <div id="detailsModalBody"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       7. Interactive Registration Form Modal
+       ========================================================================= -->
+  <div class="modal-backdrop" id="registrationModal" role="dialog" aria-modal="true" aria-labelledby="modalRegTitle">
+    <div class="modal-container">
+      <button type="button" class="modal-close-btn" id="registrationModalCloseBtn" aria-label="Close registration dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-form-header">
+        <h3 id="modalRegTitle">Event Registration</h3>
+        <p>Complete this form to reserve your free entry pass and receive your digital QR badge.</p>
+      </div>
+
+      <form id="registrationForm" class="registration-form" novalidate>
+        <!-- Select Event -->
+        <div class="form-group">
+          <label for="regEventSelect" class="form-label">
+            <span>Select Event <span class="required-star">*</span></span>
+          </label>
+          <div class="input-container">
+            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+            </svg>
+            <select id="regEventSelect" class="form-control form-select" required>
+              <!-- Options populated by data.js -->
+            </select>
+          </div>
+          <div class="form-error-feedback" id="regEventError"></div>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="regName" class="form-label">
+            <span>Full Name <span class="required-star">*</span></span>
+          </label>
+          <div class="input-container">
+            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <input type="text" id="regName" class="form-control" placeholder="e.g. Sarthak Sharma" required />
+          </div>
+          <div class="form-error-feedback" id="regNameError"></div>
+        </div>
+
+        <!-- Email & Phone in 2 Columns -->
+        <div class="form-row-2col">
+          <!-- Email -->
+          <div class="form-group">
+            <label for="regEmail" class="form-label">
+              <span>Email Address <span class="required-star">*</span></span>
+            </label>
+            <div class="input-container">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input type="email" id="regEmail" class="form-control" placeholder="sarthak@example.com" required />
+            </div>
+            <div class="form-error-feedback" id="regEmailError"></div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="regPhone" class="form-label">
+              <span>Phone Number <span class="required-star">*</span></span>
+            </label>
+            <div class="input-container">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <input type="tel" id="regPhone" class="form-control" placeholder="10-digit number" required />
+            </div>
+            <div class="form-error-feedback" id="regPhoneError"></div>
+          </div>
+        </div>
+
+        <!-- College / Organization & Ticket Type -->
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="regOrg" class="form-label">
+              <span>College / Institute</span>
+            </label>
+            <div class="input-container">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M3 10h18"></path>
+                <path d="M5 6l7-3 7 3"></path>
+                <path d="M4 10v11"></path>
+                <path d="M20 10v11"></path>
+              </svg>
+              <input type="text" id="regOrg" class="form-control" placeholder="University / Company" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="regTicketType" class="form-label">
+              <span>Pass Type <span class="required-star">*</span></span>
+            </label>
+            <div class="input-container">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <select id="regTicketType" class="form-control form-select" required>
+                <option value="Standard Student Delegate">Standard Student Delegate (Free)</option>
+                <option value="Hacker / Competitor Pass">Hacker / Competitor Pass (Free)</option>
+                <option value="VIP &amp; Networking Pass">VIP &amp; Networking Pass (Free)</option>
+              </select>
+            </div>
+            <div class="form-error-feedback" id="regTicketTypeError"></div>
+          </div>
+        </div>
+
+        <!-- Notes / Special Requests -->
+        <div class="form-group">
+          <label for="regNotes" class="form-label">Dietary or Accessibility Needs (Optional)</label>
+          <textarea id="regNotes" class="form-control form-textarea" placeholder="E.g., Vegetarian meal, wheelchair access assistance, etc."></textarea>
+        </div>
+
+        <!-- Terms Agreement Checkbox -->
+        <div class="form-group">
+          <label class="checkbox-group">
+            <input type="checkbox" id="regTerms" required />
+            <span>I agree to follow the campus code of conduct and confirm all provided details are accurate. <span class="required-star">*</span></span>
+          </label>
+          <div class="form-error-feedback" id="regTermsError"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-full" id="regSubmitBtn" style="margin-top: 0.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Confirm Registration
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       8. Digital Ticket Confirmation Modal
+       ========================================================================= -->
+  <div class="modal-backdrop" id="ticketModal" role="dialog" aria-modal="true" aria-labelledby="ticketModalTitle">
+    <div class="modal-container ticket-modal-container">
+      <button type="button" class="modal-close-btn" id="ticketModalCloseBtn" aria-label="Close ticket dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-form-header" style="text-align: center;">
+        <span style="font-size: 2.5rem; display: block; margin-bottom: 0.25rem;">🎉</span>
+        <h3 id="ticketModalTitle">Registration Confirmed!</h3>
+        <p>Your spot is locked in. Save or print your digital delegate pass below.</p>
+      </div>
+
+      <!-- Printable Ticket Element -->
+      <div id="ticketPassElement" class="ticket-pass">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Actions -->
+      <div class="ticket-actions-bar">
+        <button type="button" class="btn btn-secondary btn-sm" id="ticketPrintBtn" style="flex: 1;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          Print Pass / PDF
+        </button>
+
+        <button type="button" class="btn btn-secondary btn-sm" id="ticketCalendarBtn" style="flex: 1;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Add to Google Calendar
+        </button>
+
+        <button type="button" class="btn btn-primary btn-sm btn-full" id="ticketViewDrawerBtn">
+          View All My Passes
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       9. "My Registrations" Side Drawer (Bonus Challenge: LocalStorage Data View)
+       ========================================================================= -->
+  <div class="drawer-backdrop" id="myRegistrationsDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <aside class="drawer-panel">
+      <div class="drawer-header">
+        <h3 id="drawerTitle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          My Registered Passes
+        </h3>
+        <button type="button" class="modal-close-btn" id="drawerCloseBtn" style="position: static;" aria-label="Close my registrations">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drawer-content" id="drawerListContainer">
+        <!-- Rendered by app.js from LocalStorage -->
+      </div>
+    </aside>
+  </div>
+
+  <!-- =========================================================================
+       10. Floating Toast Notification Container
+       ========================================================================= -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- =========================================================================
+       11. Site Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand-col">
+          <a href="#home" class="brand-logo">
+            <div class="brand-icon-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <span>K-<span class="brand-highlight">EXPLORE</span></span>
+          </a>
+          <p class="footer-desc">
+            Empowering students, developers, and creators through responsive event discovery, interactive agendas, and frictionless registration.
+          </p>
+          <div style="font-size: 0.85rem; color: var(--text-muted);">
+            📍 Tech Conclave Secretariat, Academic Avenue
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h5>Quick Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#eventsSection">Browse Events</a></li>
+            <li><a href="#categoriesAnchor">Event Categories</a></li>
+            <li><a href="#whyAttend">Why Attend</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div class="footer-col">
+          <h5>Event Streams</h5>
+          <ul class="footer-links">
+            <li><a href="#eventsSection">Tech &amp; AI Hackathons</a></li>
+            <li><a href="#eventsSection">Design &amp; UI/UX Summits</a></li>
+            <li><a href="#eventsSection">Founders &amp; Startup Pitch</a></li>
+            <li><a href="#eventsSection">Music &amp; Cultural Fests</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-col">
+          <h5>Stay Updated</h5>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Subscribe to receive alerts for new flagship hackathons and workshops.
+          </p>
+          <form id="newsletterForm" class="newsletter-form">
+            <input type="email" id="newsletterEmail" class="form-control" style="padding: 0.65rem 0.85rem; font-size: 0.85rem;" placeholder="Your email address" required />
+            <button type="submit" class="btn btn-primary btn-sm">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Credits & Copyright -->
+      <div class="footer-bottom-row">
+        <div>
+          &copy; 2026 <strong>K-Explore</strong> • Designed and Developed by <strong>Sarthak Sharma</strong>.
+        </div>
+        <div>
+          <span>Crafted with HTML5, CSS3, JavaScript &amp; LocalStorage</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       12. Application Scripts
+       ========================================================================= -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
